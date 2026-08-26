@@ -136,6 +136,43 @@ footer{padding:38px 0 90px;color:#706a62}
   .entrada-historia .foto-principal,.entrada-historia .detalle-suelo{min-height:290px}
 }
 
+
+/* Calendario de disponibilidad */
+.availability-shell{background:var(--white);border-radius:32px;padding:clamp(22px,4vw,42px);box-shadow:var(--shadow)}
+.availability-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:26px}
+.availability-copy{max-width:720px}
+.availability-copy p{margin:10px 0 0;font-size:18px}
+.calendar-status{min-height:25px;color:#756b61;font-size:14px;margin-top:8px}
+.calendar-wrap{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#fffdf8}
+.calendar-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;border-bottom:1px solid var(--line);background:#f3eee2}
+.calendar-toolbar h3{font-size:clamp(25px,4vw,34px);text-transform:capitalize;text-align:center}
+.calendar-nav{border:1px solid #cfc4b1;background:white;color:var(--ink);width:44px;height:44px;border-radius:50%;font-size:23px;cursor:pointer}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr)}
+.calendar-weekday{padding:12px 6px;text-align:center;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#7b7167;border-bottom:1px solid var(--line)}
+.calendar-day{min-height:92px;padding:10px;border:0;border-right:1px solid #ebe3d6;border-bottom:1px solid #ebe3d6;background:#fffdf8;text-align:left;position:relative;color:#443e38}
+.calendar-day:nth-child(7n){border-right:0}
+.calendar-day.empty{background:#f5f0e6}
+.calendar-day .num{font-weight:800;font-size:16px}
+.calendar-day .state{display:block;margin-top:9px;font-size:12px;font-weight:700}
+.calendar-day.available .state{color:#527044}
+.calendar-day.busy{background:#eee0d6;color:#754b3c}
+.calendar-day.busy .state{color:#914d38}
+.calendar-day.today{box-shadow:inset 0 0 0 2px var(--olive)}
+.calendar-legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;font-size:14px}
+.legend-item{display:inline-flex;align-items:center;gap:8px}
+.legend-dot{width:13px;height:13px;border-radius:4px;background:#fffdf8;border:1px solid #cfc4b1}
+.legend-dot.busy{background:#eee0d6;border-color:#d2aa96}
+.availability-contact{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;border-radius:20px;background:#eef0df}
+.availability-contact p{margin:0}
+.availability-error{padding:24px;text-align:center;color:#7b493b}
+@media(max-width:700px){
+  .availability-top,.availability-contact{display:block}
+  .availability-contact .btn{margin-top:14px}
+  .calendar-day{min-height:68px;padding:7px 5px}
+  .calendar-day .state{font-size:10px;margin-top:5px}
+  .calendar-weekday{font-size:10px;padding:10px 2px;letter-spacing:0}
+}
+
 </style>
 </head>
 <body>
@@ -144,7 +181,7 @@ footer{padding:38px 0 90px;color:#706a62}
     <div class="brand">Antigua Botiga</div>
     <nav>
       <a href="#casa">La casa</a><a href="#habitaciones">Habitaciones</a><a href="#espacios">Espacios</a><a href="#entorno">Alrededores</a>
-      <a class="navcta" href="https://wa.me/34615828063?text=Hola%2C%20quisiera%20consultar%20disponibilidad%20de%20La%20Antigua%20Botiga">Disponibilidad</a>
+      <a class="navcta" href="#disponibilidad">Disponibilidad</a>
     </nav>
   </div>
 </header>
@@ -157,7 +194,7 @@ footer{padding:38px 0 90px;color:#706a62}
       <h1>La Antigua<br>Botiga</h1>
       <p class="lead">Piedra, madera, jardín y espacios para disfrutar juntos del Maestrazgo con calma.</p>
       <div class="actions">
-        <a class="btn primary" href="https://wa.me/34615828063?text=Hola%2C%20quisiera%20consultar%20disponibilidad%20de%20La%20Antigua%20Botiga">Ver disponibilidad</a>
+        <a class="btn primary" href="#disponibilidad">Ver disponibilidad</a>
         <a class="btn secondary" href="https://wa.me/34615828063">WhatsApp · 615 828 063</a>
       </div>
     </div>
@@ -309,12 +346,47 @@ footer{padding:38px 0 90px;color:#706a62}
   </div>
 </section>
 
+
+<section class="section alt" id="disponibilidad">
+  <div class="wrap">
+    <div class="availability-shell">
+      <div class="availability-top">
+        <div class="availability-copy">
+          <div class="kicker">Disponibilidad</div>
+          <h2>Consulta el calendario</h2>
+          <p>Los días marcados como <strong>ocupados</strong> ya tienen reserva. Para confirmar una estancia o consultar cualquier fecha, escríbenos por WhatsApp.</p>
+          <div class="calendar-status" id="calendar-status">Consultando disponibilidad…</div>
+        </div>
+      </div>
+
+      <div class="calendar-wrap" aria-label="Calendario de disponibilidad">
+        <div class="calendar-toolbar">
+          <button class="calendar-nav" id="calendar-prev" type="button" aria-label="Mes anterior">‹</button>
+          <h3 id="calendar-title">Calendario</h3>
+          <button class="calendar-nav" id="calendar-next" type="button" aria-label="Mes siguiente">›</button>
+        </div>
+        <div class="calendar-grid" id="calendar-grid"></div>
+      </div>
+
+      <div class="calendar-legend">
+        <span class="legend-item"><span class="legend-dot"></span> Disponible</span>
+        <span class="legend-item"><span class="legend-dot busy"></span> Ocupado</span>
+      </div>
+
+      <div class="availability-contact">
+        <p><strong>¿Te encajan las fechas?</strong><br>Escríbenos y te confirmamos la reserva personalmente.</p>
+        <a class="btn primary" href="https://wa.me/34615828063?text=Hola%2C%20quisiera%20consultar%20unas%20fechas%20para%20La%20Antigua%20Botiga">Consultar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap cta">
     <div><div class="kicker" style="color:#d9b38d">La Antigua Botiga</div><h2>¿Organizamos vuestra estancia?</h2>
     <p>Cuéntanos las fechas y cuántas personas sois. Te respondemos directamente por WhatsApp.</p></div>
     <div class="actions">
-      <a class="btn" style="background:white;color:#283120" href="https://wa.me/34615828063?text=Hola%2C%20quisiera%20consultar%20disponibilidad%20de%20La%20Antigua%20Botiga">Consultar disponibilidad</a>
+      <a class="btn" style="background:white;color:#283120" href="#disponibilidad">Consultar disponibilidad</a>
     </div>
   </div>
 </section>
@@ -330,5 +402,94 @@ const lb=document.getElementById('lightbox'), lbi=lb.querySelector('img');
 document.querySelectorAll('main img').forEach(img=>img.addEventListener('click',()=>{lbi.src=img.src; lbi.alt=img.alt; lb.classList.add('open')}));
 lb.addEventListener('click',e=>{if(e.target===lb||e.target.tagName==='BUTTON')lb.classList.remove('open')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
+
+const AVAILABILITY_API = "https://antigua-botiga-disponibilidad-2.antiguabotiga.workers.dev";
+const calGrid = document.getElementById('calendar-grid');
+const calTitle = document.getElementById('calendar-title');
+const calStatus = document.getElementById('calendar-status');
+const calPrev = document.getElementById('calendar-prev');
+const calNext = document.getElementById('calendar-next');
+let busyRanges = [];
+let calendarCursor = new Date();
+calendarCursor = new Date(calendarCursor.getFullYear(), calendarCursor.getMonth(), 1);
+
+function parseLocalDate(iso){
+  const [y,m,d] = iso.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+function dayKey(date){
+  const y=date.getFullYear();
+  const m=String(date.getMonth()+1).padStart(2,'0');
+  const d=String(date.getDate()).padStart(2,'0');
+  return `${y}-${m}-${d}`;
+}
+function isBusy(date){
+  const t = new Date(date.getFullYear(),date.getMonth(),date.getDate()).getTime();
+  return busyRanges.some(({inicio,fin})=>{
+    const start=parseLocalDate(inicio).getTime();
+    const endRaw=parseLocalDate(fin || inicio).getTime();
+    // En iCalendar, DTEND de eventos de día completo es exclusivo.
+    const end = endRaw > start ? endRaw : start + 86400000;
+    return t >= start && t < end;
+  });
+}
+function renderCalendar(){
+  if(!calGrid) return;
+  const year=calendarCursor.getFullYear();
+  const month=calendarCursor.getMonth();
+  calTitle.textContent = new Intl.DateTimeFormat('es-ES',{month:'long',year:'numeric'}).format(calendarCursor);
+  calGrid.innerHTML='';
+  ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'].forEach(name=>{
+    const el=document.createElement('div');
+    el.className='calendar-weekday';
+    el.textContent=name;
+    calGrid.appendChild(el);
+  });
+  const first=new Date(year,month,1);
+  const offset=(first.getDay()+6)%7;
+  const total=new Date(year,month+1,0).getDate();
+  for(let i=0;i<offset;i++){
+    const el=document.createElement('div');
+    el.className='calendar-day empty';
+    calGrid.appendChild(el);
+  }
+  const todayKey=dayKey(new Date());
+  for(let day=1;day<=total;day++){
+    const date=new Date(year,month,day);
+    const busy=isBusy(date);
+    const el=document.createElement('div');
+    el.className=`calendar-day ${busy?'busy':'available'}${dayKey(date)===todayKey?' today':''}`;
+    el.setAttribute('aria-label',`${day} ${busy?'ocupado':'disponible'}`);
+    el.innerHTML=`<span class="num">${day}</span><span class="state">${busy?'Ocupado':'Disponible'}</span>`;
+    calGrid.appendChild(el);
+  }
+}
+
+calPrev?.addEventListener('click',()=>{
+  calendarCursor=new Date(calendarCursor.getFullYear(),calendarCursor.getMonth()-1,1);
+  renderCalendar();
+});
+calNext?.addEventListener('click',()=>{
+  calendarCursor=new Date(calendarCursor.getFullYear(),calendarCursor.getMonth()+1,1);
+  renderCalendar();
+});
+
+async function loadAvailability(){
+  renderCalendar();
+  try{
+    const response=await fetch(AVAILABILITY_API,{cache:'no-store'});
+    if(!response.ok) throw new Error('Respuesta no válida');
+    const data=await response.json();
+    if(!data.ok || !Array.isArray(data.ocupados)) throw new Error('Formato no válido');
+    busyRanges=data.ocupados.filter(x=>x && x.inicio);
+    calStatus.textContent=`Calendario actualizado · ${busyRanges.length} reserva${busyRanges.length===1?'':'s'} registrada${busyRanges.length===1?'':'s'}.`;
+    renderCalendar();
+  }catch(error){
+    calStatus.textContent='No se ha podido cargar la disponibilidad en este momento. Puedes consultarnos por WhatsApp.';
+    console.error('Error cargando disponibilidad:',error);
+  }
+}
+loadAvailability();
+
 </script>
 </body></html>
