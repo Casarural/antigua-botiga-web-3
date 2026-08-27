@@ -332,6 +332,40 @@ nav a{white-space:nowrap}
   #habitaciones .card-body{min-height:auto;padding:22px 22px 24px}
 }
 
+
+/* Corrección de habitaciones 2 y 4 + compactación general */
+#habitaciones .card-body{
+  min-height:auto !important;
+  padding:18px 22px 20px !important;
+}
+#habitaciones .card-body h3{
+  margin:0 0 6px !important;
+}
+#habitaciones .card-body .meta{
+  margin:0 !important;
+  line-height:1.45 !important;
+}
+#habitaciones .card-media{
+  overflow:hidden !important;
+}
+#habitaciones .card-media.room-three{
+  grid-template-columns:1.18fr .82fr !important;
+  grid-template-rows:1fr 1fr !important;
+}
+#habitaciones .card-media.room-three img:first-child{
+  grid-row:1/3 !important;
+  min-width:0;
+}
+#habitaciones .card-media img{
+  min-width:0;
+  object-fit:cover !important;
+}
+@media(max-width:850px){
+  #habitaciones .card-body{
+    padding:16px 18px 18px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -351,7 +385,7 @@ nav a{white-space:nowrap}
     <div class="hero-copy">
       <div class="eyebrow">Una casa con historia · La Iglesuela del Cid</div>
       <h1>La Antigua<br>Botiga</h1>
-      <p class="lead">Piedra, madera, jardín y espacios para disfrutar juntos del Maestrazgo con calma.</p>
+      <p class="lead">Una casa con historia para compartir buenos momentos en familia o con amigos, en pleno Maestrazgo.</p>
       <div class="actions">
         <a class="btn primary" href="#disponibilidad">Ver disponibilidad</a>
         <a class="btn secondary" href="#precios">Ver precios</a>
