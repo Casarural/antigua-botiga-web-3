@@ -401,6 +401,16 @@ nav a{white-space:nowrap}
   }
 }
 
+
+/* Rutas de senderismo y bicicleta */
+.routes-section{background:#f3eee5;border-radius:30px;padding:clamp(26px,4vw,44px);box-shadow:var(--shadow)}
+.routes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.route-card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:22px}
+.route-card .route-meta{font-size:13px;font-weight:800;letter-spacing:.04em;color:#94623f;margin-bottom:8px}
+.route-card h3{font-size:27px;margin:0 0 8px}
+.route-card p{margin:0;line-height:1.6}
+@media(max-width:700px){.routes-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -408,7 +418,7 @@ nav a{white-space:nowrap}
   <div class="wrap nav">
     <div class="brand">Antigua Botiga</div>
     <nav>
-      <a href="#casa">La casa</a><a href="#distribucion">Distribución</a><a href="#equipamiento">Equipamiento</a><a href="#habitaciones">Habitaciones</a><a href="#espacios">Espacios</a><a href="#entorno">Alrededores</a><a href="#que-ver">Qué ver cerca</a><a href="#precios">Precios</a>
+      <a href="#casa">La casa</a><a href="#distribucion">Distribución</a><a href="#equipamiento">Equipamiento</a><a href="#habitaciones">Habitaciones</a><a href="#espacios">Espacios</a><a href="#entorno">Alrededores</a><a href="#rutas">Rutas</a><a href="#que-ver">Qué ver cerca</a><a href="#precios">Precios</a>
       <a class="navcta" href="#disponibilidad">Disponibilidad</a>
     </nav>
   </div>
@@ -710,6 +720,43 @@ nav a{white-space:nowrap}
 </section>
 
 
+
+
+<section class="section" id="rutas">
+  <div class="wrap">
+    <div class="routes-section">
+      <div class="kicker">Senderismo y bicicleta</div>
+      <h2 style="font-size:clamp(38px,5vw,60px);margin-top:6px">Rutas para descubrir el Maestrazgo</h2>
+      <p class="intro" style="margin-top:12px">Desde La Iglesuela del Cid y su entorno salen recorridos muy interesantes para caminar o pedalear entre piedra seca, ermitas, pinares y antiguos caminos históricos.</p>
+
+      <div class="routes-grid">
+        <article class="route-card">
+          <div class="route-meta">Senderismo · Circular · 9 km · ≈ 2 h 25 min</div>
+          <h3>Ruta de la Piedra Seca · PR-TE 70 / GR 8.2</h3>
+          <p>Sale del Portal de San Pablo y recorre muros, casetas y caminos tradicionales de piedra seca. Permite acercarse al Santuario de la Virgen del Cid y conocer algunos de los paisajes más característicos de La Iglesuela.</p>
+        </article>
+
+        <article class="route-card">
+          <div class="route-meta">Senderismo · Circular · 3,2 km · ≈ 1 h 30 min</div>
+          <h3>Vuelta a la Loma del Pinar · PR-TE 71</h3>
+          <p>Ruta corta pero muy panorámica. Parte junto al cementerio, atraviesa caminos entre muros de piedra seca y alcanza la Cruz del Morrón, un excelente mirador natural.</p>
+        </article>
+
+        <article class="route-card">
+          <div class="route-meta">Senderismo · Travesía · 10,4 km · ≈ 3 h 10 min</div>
+          <h3>GR 8.2 · Cantavieja – La Iglesuela del Cid</h3>
+          <p>Antiguo camino histórico entre Cantavieja y La Iglesuela, con tramos entre veredas, casetas y paredes de piedra seca. Una buena opción para quienes quieran unir dos de los pueblos más destacados del Maestrazgo a pie.</p>
+        </article>
+
+        <article class="route-card">
+          <div class="route-meta">BTT · 21,3 km · ≈ 2–2 h 30 min · Dificultad alta</div>
+          <h3>Centro BTT · Fortanete – La Iglesuela del Cid</h3>
+          <p>Ruta ciclista que sigue buena parte del GR 8 y el Camino de los Pilones. Combina pista forestal, sendero y pequeños tramos de carretera hasta descender a La Iglesuela.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="que-ver">
   <div class="wrap">
