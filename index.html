@@ -186,6 +186,20 @@ footer{padding:38px 0 90px;color:#706a62}
 .price-chip{background:#eef0df;border:1px solid #d9dec0;border-radius:999px;padding:8px 12px;font-weight:700;color:var(--olive)}
 @media(max-width:850px){.pricing-grid{grid-template-columns:1fr}}
 
+
+/* Equipamiento */
+.equipment-shell{background:var(--white);border-radius:32px;padding:clamp(26px,4vw,46px);box-shadow:var(--shadow)}
+.equipment-intro{max-width:760px;margin-bottom:26px}
+.equipment-intro p{font-size:18px;line-height:1.7;margin-top:10px}
+.equipment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.equipment-card{border:1px solid var(--line);border-radius:22px;padding:22px;background:#fffdf8}
+.equipment-card h3{font-size:24px;margin:0 0 14px}
+.equipment-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.equipment-list li{position:relative;padding-left:20px;line-height:1.45}
+.equipment-list li:before{content:"•";position:absolute;left:0;color:var(--olive);font-weight:900}
+@media(max-width:900px){.equipment-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.equipment-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -193,7 +207,7 @@ footer{padding:38px 0 90px;color:#706a62}
   <div class="wrap nav">
     <div class="brand">Antigua Botiga</div>
     <nav>
-      <a href="#casa">La casa</a><a href="#habitaciones">Habitaciones</a><a href="#espacios">Espacios</a><a href="#entorno">Alrededores</a><a href="#precios">Precios</a>
+      <a href="#casa">La casa</a><a href="#equipamiento">Equipamiento</a><a href="#habitaciones">Habitaciones</a><a href="#espacios">Espacios</a><a href="#entorno">Alrededores</a><a href="#precios">Precios</a>
       <a class="navcta" href="#disponibilidad">Disponibilidad</a>
     </nav>
   </div>
@@ -222,6 +236,53 @@ footer{padding:38px 0 90px;color:#706a62}
   <div class="stat"><b>Patio</b>y jardín</div>
   <div class="stat"><b>Barbacoa</b>y salón de futbolín</div>
 </div>
+
+
+<section class="section" id="equipamiento">
+  <div class="wrap">
+    <div class="equipment-shell">
+      <div class="equipment-intro">
+        <div class="kicker">Equipamiento</div>
+        <h2 style="font-size:clamp(36px,5vw,56px);margin-top:6px">Todo lo necesario para disfrutar de la casa con comodidad</h2>
+        <p>La casa está preparada para que la estancia resulte cómoda desde el primer día, con ropa de hogar, electrodomésticos y elementos pensados para familias y reuniones.</p>
+      </div>
+      <div class="equipment-grid">
+        <article class="equipment-card">
+          <h3>Ropa de hogar</h3>
+          <ul class="equipment-list">
+            <li>Ropa de cama</li>
+            <li>Ropa de baño</li>
+          </ul>
+        </article>
+        <article class="equipment-card">
+          <h3>Cocina y limpieza</h3>
+          <ul class="equipment-list">
+            <li>Cafetera</li>
+            <li>Nevera</li>
+            <li>Lavavajillas</li>
+            <li>Lavadora</li>
+          </ul>
+        </article>
+        <article class="equipment-card">
+          <h3>Comodidades</h3>
+          <ul class="equipment-list">
+            <li>Televisión</li>
+            <li>Wi‑Fi</li>
+            <li>Leña</li>
+            <li>Cuna</li>
+          </ul>
+        </article>
+        <article class="equipment-card">
+          <h3>Para cocinar juntos</h3>
+          <ul class="equipment-list">
+            <li>Paellero</li>
+            <li>Paellas</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="habitaciones">
   <div class="wrap">
