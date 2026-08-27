@@ -234,6 +234,20 @@ footer{padding:38px 0 90px;color:#706a62}
 @media(max-width:900px){.local-grid{grid-template-columns:1fr 1fr}.trip-grid{grid-template-columns:1fr 1fr}.trip-card.special{grid-column:1/-1}}
 @media(max-width:560px){.local-grid,.trip-grid{grid-template-columns:1fr}.trip-card.special{grid-column:auto}}
 
+
+/* Distribución de la casa */
+.layout-house{background:var(--white);border-radius:30px;padding:clamp(26px,4vw,44px);box-shadow:var(--shadow)}
+.layout-intro{max-width:780px;margin-bottom:24px}
+.layout-intro p{font-size:18px;line-height:1.7;margin:10px 0 0}
+.layout-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.layout-card{background:#fffdf8;border:1px solid var(--line);border-radius:22px;padding:22px}
+.layout-card .floor{display:inline-block;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#94623f;margin-bottom:9px}
+.layout-card h3{font-size:25px;margin:0 0 10px}
+.layout-card ul{margin:0;padding-left:19px;line-height:1.65}
+.layout-note{margin-top:18px;padding:16px 18px;border-radius:18px;background:var(--sage);color:var(--ink);font-weight:700}
+@media(max-width:900px){.layout-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.layout-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -241,7 +255,7 @@ footer{padding:38px 0 90px;color:#706a62}
   <div class="wrap nav">
     <div class="brand">Antigua Botiga</div>
     <nav>
-      <a href="#casa">La casa</a><a href="#equipamiento">Equipamiento</a><a href="#habitaciones">Habitaciones</a><a href="#espacios">Espacios</a><a href="#entorno">Alrededores</a><a href="#que-ver">Qué ver cerca</a><a href="#precios">Precios</a>
+      <a href="#casa">La casa</a><a href="#distribucion">Distribución</a><a href="#equipamiento">Equipamiento</a><a href="#habitaciones">Habitaciones</a><a href="#espacios">Espacios</a><a href="#entorno">Alrededores</a><a href="#que-ver">Qué ver cerca</a><a href="#precios">Precios</a>
       <a class="navcta" href="#disponibilidad">Disponibilidad</a>
     </nav>
   </div>
@@ -271,6 +285,56 @@ footer{padding:38px 0 90px;color:#706a62}
   <div class="stat"><b>Barbacoa</b>y salón de futbolín</div>
 </div>
 
+
+
+<section class="section alt" id="distribucion">
+  <div class="wrap">
+    <div class="layout-house">
+      <div class="layout-intro">
+        <div class="kicker">Distribución de la casa</div>
+        <h2 style="font-size:clamp(38px,5vw,60px);margin-top:6px">Cuatro niveles, con las habitaciones agrupadas por plantas</h2>
+        <p>La planta baja concentra las zonas comunes y no tiene dormitorios. Las seis habitaciones están repartidas en las tres plantas superiores, con dos habitaciones en cada planta.</p>
+      </div>
+
+      <div class="layout-grid">
+        <article class="layout-card">
+          <span class="floor">Planta baja</span>
+          <h3>Zonas comunes</h3>
+          <ul>
+            <li>Entrada</li>
+            <li>Comedor-salón con cocina</li>
+            <li>Comedor de barbacoa</li>
+            <li>2 aseos</li>
+            <li>Sin habitaciones</li>
+          </ul>
+        </article>
+
+        <article class="layout-card">
+          <span class="floor">Primera planta</span>
+          <h3>2 habitaciones</h3>
+          <p>Dos dormitorios situados en la misma planta.</p>
+        </article>
+
+        <article class="layout-card">
+          <span class="floor">Segunda planta</span>
+          <h3>2 habitaciones</h3>
+          <p>Dos dormitorios situados en la misma planta.</p>
+        </article>
+
+        <article class="layout-card">
+          <span class="floor">Tercera planta</span>
+          <h3>2 habitaciones</h3>
+          <p>Dos dormitorios situados en la misma planta.</p>
+        </article>
+      </div>
+
+      <div class="layout-note">En total: 6 habitaciones, distribuidas en 3 plantas, con 2 habitaciones por planta.</div>
+      <div class="layout-note" style="margin-top:10px;background:#f3eee5;font-weight:600">
+        <strong>Accesibilidad:</strong> las habitaciones se encuentran en plantas superiores y el acceso se realiza por escaleras, por lo que la casa no es accesible para personas usuarias de silla de ruedas.
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="equipamiento">
   <div class="wrap">
@@ -609,15 +673,15 @@ footer{padding:38px 0 90px;color:#706a62}
               <th style="text-align:left;padding:16px;border-bottom:1px solid var(--line)">Octubre–abril</th>
             </tr></thead>
             <tbody>
-              <tr><td style="padding:16px;border-bottom:1px solid var(--line)"><strong>Hasta 6 personas · 2 habitaciones</strong></td><td style="padding:16px;border-bottom:1px solid var(--line)"><strong>600 €</strong></td><td style="padding:16px;border-bottom:1px solid var(--line)"><strong>700 €</strong></td></tr>
+              <tr><td style="padding:16px;border-bottom:1px solid var(--line)"><strong>Hasta 6 personas · 2 habitaciones (4 + 2)</strong></td><td style="padding:16px;border-bottom:1px solid var(--line)"><strong>600 €</strong></td><td style="padding:16px;border-bottom:1px solid var(--line)"><strong>700 €</strong></td></tr>
               <tr><td style="padding:16px;border-bottom:1px solid var(--line)">7–10 personas</td><td style="padding:16px;border-bottom:1px solid var(--line)"><strong>700 €</strong></td><td style="padding:16px;border-bottom:1px solid var(--line)"><strong>800 €</strong></td></tr>
               <tr><td style="padding:16px;border-bottom:1px solid var(--line)">11–14 personas</td><td style="padding:16px;border-bottom:1px solid var(--line)"><strong>800 €</strong></td><td style="padding:16px;border-bottom:1px solid var(--line)"><strong>900 €</strong></td></tr>
               <tr><td style="padding:16px">15–18 personas</td><td style="padding:16px"><strong>1.000 €</strong></td><td style="padding:16px"><strong>1.100 €</strong></td></tr>
             </tbody>
           </table>
         </div>
-        <div class="price-note"><strong>Tarifa mínima:</strong> hasta 6 personas, el precio mínimo es de 600 € de mayo a septiembre y 700 € de octubre a abril, aunque el grupo sea menor. En esta modalidad se habilitan 2 habitaciones.</div>
-        <div class="price-note"><strong>Uso exclusivo:</strong> la casa sigue siendo de uso exclusivo para el grupo; únicamente se limita el número de habitaciones habilitadas.</div>
+        <div class="price-note"><strong>Tarifa hasta 6 personas:</strong> incluye el uso de 2 habitaciones de la misma planta (4 + 2 plazas). El precio mínimo es de 600 € de mayo a septiembre y 700 € de octubre a abril, aunque el grupo sea menor. Si un grupo de hasta 6 personas necesita utilizar más de 2 habitaciones, se aplicará la tarifa de 7 a 10 personas.</div>
+        <div class="price-note"><strong>Uso exclusivo:</strong> independientemente del número de habitaciones habilitadas, la casa es siempre de uso exclusivo para el grupo.</div>
         <div class="price-note"><strong>Estancias de más de 3 días:</strong> precio especial. <strong>Puentes y Fin de Año:</strong> consultar.</div>
         <div class="price-included" aria-label="Incluido sin suplemento">
           <span class="price-chip">Casa completa</span>
