@@ -261,6 +261,77 @@ nav a{white-space:nowrap}
   nav a{flex:0 0 auto}
 }
 
+
+/* Resumen principal: cinco datos en una sola línea */
+.stats{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;
+}
+.stat{
+  padding:17px 9px;
+  min-width:0;
+  font-size:14px;
+  line-height:1.3;
+}
+.stat b{
+  font-size:23px;
+  line-height:1.05;
+  margin-bottom:5px;
+}
+@media(max-width:850px){
+  .stats{
+    grid-template-columns:repeat(5,minmax(145px,1fr));
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    scrollbar-width:none;
+    padding-bottom:6px;
+  }
+  .stats::-webkit-scrollbar{display:none}
+}
+
+
+/* Habitaciones: fotos y descripciones siempre separadas */
+#habitaciones .card{
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+#habitaciones .card-media{
+  flex:0 0 auto;
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+}
+#habitaciones .card-media img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+#habitaciones .card-body{
+  position:relative;
+  z-index:2;
+  flex:1 0 auto;
+  min-height:132px;
+  background:var(--white);
+  padding:24px 26px 26px;
+  overflow:visible;
+}
+#habitaciones .card-body h3{
+  margin:0 0 9px;
+}
+#habitaciones .card-body .meta{
+  margin:0;
+  line-height:1.55;
+}
+#habitaciones .rooms,
+#habitaciones .shared{
+  align-items:stretch;
+}
+@media(max-width:850px){
+  #habitaciones .card-body{min-height:auto;padding:22px 22px 24px}
+}
+
 </style>
 </head>
 <body>
@@ -294,10 +365,10 @@ nav a{white-space:nowrap}
 
 <div class="wrap stats" aria-label="Resumen de la casa">
   <div class="stat"><b>6</b>habitaciones</div>
+  <div class="stat"><b>5 baños completos</b>+ 2 aseos</div>
   <div class="stat"><b>18</b>personas</div>
   <div class="stat"><b>Patio / jardín</b></div>
-  <div class="stat"><b>Barbacoa</b>y salón de futbolín</div>
-        <div class="stat"><b>5 baños completos</b>2 aseos</div>
+  <div class="stat"><b>Barbacoa</b>salón de futbolín</div>
 </div>
 
 
