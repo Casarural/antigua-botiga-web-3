@@ -366,6 +366,41 @@ nav a{white-space:nowrap}
   }
 }
 
+
+/* Habitaciones 2 y 4: tres fotos sin superposición */
+#habitaciones .card-media.room-three{
+  display:grid !important;
+  grid-template-columns:1.35fr .825fr .825fr !important;
+  grid-template-rows:1fr !important;
+  gap:2px !important;
+  height:320px !important;
+  overflow:hidden !important;
+}
+#habitaciones .card-media.room-three img,
+#habitaciones .card-media.room-three img:first-child{
+  grid-row:auto !important;
+  grid-column:auto !important;
+  width:100% !important;
+  height:100% !important;
+  min-width:0 !important;
+  object-fit:cover !important;
+  position:static !important;
+}
+#habitaciones .card-body{
+  min-height:auto !important;
+  padding:17px 20px 19px !important;
+}
+@media(max-width:700px){
+  #habitaciones .card-media.room-three{
+    grid-template-columns:1fr 1fr !important;
+    grid-template-rows:1fr 1fr !important;
+    height:360px !important;
+  }
+  #habitaciones .card-media.room-three img:first-child{
+    grid-row:1/3 !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -385,7 +420,7 @@ nav a{white-space:nowrap}
     <div class="hero-copy">
       <div class="eyebrow">Una casa con historia · La Iglesuela del Cid</div>
       <h1>La Antigua<br>Botiga</h1>
-      <p class="lead">Una casa con historia para compartir buenos momentos en familia o con amigos, en pleno Maestrazgo.</p>
+      <p class="lead">Toca el llamador de forja de la puerta, pisa el suelo de piedras del siglo XVIII y déjate llevar por el alma de este hogar. Una casa con historia para compartir buenos momentos en familia o con amigos, en pleno Maestrazgo.</p>
       <div class="actions">
         <a class="btn primary" href="#disponibilidad">Ver disponibilidad</a>
         <a class="btn secondary" href="#precios">Ver precios</a>
