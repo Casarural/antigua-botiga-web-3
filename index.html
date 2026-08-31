@@ -413,6 +413,80 @@ nav a{white-space:nowrap}
 @media(max-width:700px){.routes-grid{grid-template-columns:1fr}}
 
 
+/* Calendario móvil: siempre visibles los 7 días de la semana */
+.calendar-wrap,
+.calendar-grid{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  box-sizing:border-box;
+}
+.calendar-grid{
+  grid-template-columns:repeat(7,minmax(0,1fr)) !important;
+  overflow:hidden;
+}
+.calendar-weekday,
+.calendar-day{
+  min-width:0;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+@media(max-width:520px){
+  .availability-shell{
+    padding:14px 10px !important;
+    border-radius:22px;
+  }
+  .calendar-toolbar{
+    padding:12px 10px !important;
+    gap:8px;
+  }
+  .calendar-toolbar h3{
+    font-size:24px !important;
+    line-height:1.08;
+  }
+  .calendar-nav{
+    width:38px;
+    height:38px;
+    flex:0 0 38px;
+    font-size:21px;
+  }
+  .calendar-weekday{
+    padding:8px 0 !important;
+    font-size:9px !important;
+    letter-spacing:0 !important;
+  }
+  .calendar-day{
+    min-height:62px !important;
+    padding:6px 2px !important;
+  }
+  .calendar-day .num{
+    font-size:14px !important;
+  }
+  .calendar-day .state{
+    margin-top:5px !important;
+    font-size:8px !important;
+    line-height:1.05 !important;
+    white-space:nowrap;
+    letter-spacing:-0.15px;
+  }
+  .calendar-legend{
+    gap:12px;
+    font-size:13px;
+  }
+}
+@media(max-width:390px){
+  .calendar-day{
+    min-height:58px !important;
+    padding:5px 1px !important;
+  }
+  .calendar-day .state{
+    font-size:7.5px !important;
+  }
+  .calendar-weekday{
+    font-size:8.5px !important;
+  }
+}
+
 /* Corrección definitiva de galerías de habitaciones: sin superposición ni recortes */
 #habitaciones .card-media.room-three{
   display:grid !important;
@@ -472,6 +546,15 @@ nav a{white-space:nowrap}
     object-fit:contain !important;
   }
 }
+
+/* Servicios próximos */
+.nearby-services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:26px}
+.nearby-service-card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow)}
+.nearby-service-card h3{font-size:27px;margin:0 0 10px}
+.nearby-service-card p{margin:0;line-height:1.7}
+.nearby-service-note{margin-top:18px;color:#756b61;font-size:14px}
+@media(max-width:700px){.nearby-services{grid-template-columns:1fr}.nearby-service-card{padding:20px}}
+
 </style>
 <style>
 .room-video-details{margin:12px 16px 16px}.room-video-details summary{display:inline-flex;align-items:center;gap:7px;cursor:pointer;list-style:none;padding:9px 13px;border:1px solid rgba(0,0,0,.15);border-radius:999px;font-size:.88rem;font-weight:700;background:rgba(255,255,255,.88);box-shadow:0 2px 8px rgba(0,0,0,.06);user-select:none}.room-video-details summary::-webkit-details-marker{display:none}.room-video-details summary:hover{transform:translateY(-1px)}.room-video-compact{margin-top:10px;max-width:520px}.room-video-compact video{display:block;width:100%;height:auto;max-height:360px;background:#111;border-radius:12px}.room-video-details[open] summary{margin-bottom:2px}@media(max-width:700px){.room-video-details{margin:10px 12px 14px}.room-video-details summary{font-size:.84rem;padding:8px 11px}.room-video-compact{max-width:100%}.room-video-compact video{max-height:300px}}
@@ -482,7 +565,7 @@ nav a{white-space:nowrap}
 <div class="brand">Antigua Botiga</div>
 <nav>
 <a href="#casa">La casa</a><a href="#distribucion">Distribución</a><a href="#equipamiento">Equipamiento</a><a href="#habitaciones">Habitaciones</a><a href="#espacios">Espacios</a><a href="#entorno">Alrededores</a><a href="#rutas">Rutas</a><a href="#que-ver">Qué ver cerca</a><a href="#precios">Precios</a>
-<a class="navcta" href="#disponibilidad">Disponibilidad</a>
+<a href="#servicios-proximos">Servicios próximos</a><a class="navcta" href="#disponibilidad">Disponibilidad</a>
 </nav>
 </div>
 </header>
@@ -854,6 +937,24 @@ nav a{white-space:nowrap}
 </article>
 </div>
 <p class="nearby-note">Las distancias son aproximadas desde La Iglesuela del Cid y pueden variar según la ruta elegida.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="servicios-proximos">
+<div class="wrap">
+<div class="kicker">Servicios próximos</div>
+<h2>Todo lo necesario, a pocos minutos de la casa</h2>
+<p class="section-intro">Tanto si os apetece salir a comer o tomar algo como si preferís cocinar en La Antigua Botiga, tenéis varias opciones muy cerca.</p>
+<div class="nearby-services">
+<div class="nearby-service-card">
+<h3>Para comer o tomar algo</h3>
+<p>A menos de cinco minutos a pie de la casa encontrarás <strong>Bar Camilo</strong>, <strong>Bar Amadeo</strong>, <strong>Bar Tropezón</strong> y, por último, <strong>Casa Amada</strong>.</p>
+</div>
+<div class="nearby-service-card">
+<h3>Para comprar comida</h3>
+<p>Si prefieres cocinar en la casa, también tienes cerca <strong>Carnicería Pitarch</strong>, atendida por Cristina, y la <strong>tienda de Rebeca</strong>, donde puedes comprar pan y productos de alimentación para la estancia.</p>
+</div>
 </div>
 </div>
 </section>
